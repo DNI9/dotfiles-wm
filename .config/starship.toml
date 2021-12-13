@@ -1,0 +1,74 @@
+format = "$all"
+
+add_newline = false
+
+[character]
+success_symbol = "[](bold green)"
+error_symbol = "[✘ ](bold red)"
+
+[line_break]
+disabled = false
+
+[cmd_duration]
+min_time = 500
+format = "took [$duration](bold yellow)"
+
+[username]
+style_user = "white"
+style_root = "black bold"
+format = "󰣇 ($style fg:blue)"
+disabled = true
+show_always = true
+
+[hostname]
+ssh_only = false
+format =  "on [󰣇](bold) "
+trim_at = ".companyname.com"
+disabled = true
+
+[git_status]
+ahead = "[⇡${count}](bold yellow)"
+behind = "[⇣${count}](bold yellow)"
+conflicted = "[!=](bold red)"
+diverged = "[⇕ ⇡${ahead_count}⇣${behind_count}](bold yellow)"
+modified = "[!](bold blue)"
+staged = "[+](bold green)"
+style = "bold white"
+untracked = "[?](bold purple)"
+
+[dart]
+symbol = " "
+
+[docker_context]
+symbol = " "
+
+[git_branch]
+symbol = "󰘬 "
+
+[golang]
+symbol = " "
+
+[hg_branch]
+symbol = "󰘬 "
+
+[nodejs]
+symbol = "⬢ "
+format = "[$symbol$version](bold purple) "
+not_capable_style = "bold red"
+
+[package]
+symbol = " "
+style = "bold yellow"
+
+[java]
+symbol = " "
+style = "dimmed purple"
+
+[python]
+symbol = " "
+
+[directory]
+style = "bold cyan"
+truncate_to_repo = true
+truncation_length = 2
+

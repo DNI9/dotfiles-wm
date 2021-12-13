@@ -1,0 +1,153 @@
+# Zoxode
+alias cd="z"
+
+alias open=xdg-open
+alias rm="rm -i"
+alias clip="xclip -selection clipboard"
+
+# Git
+# Check if main exists and use instead of master
+function git_main_branch() {
+  command git rev-parse --git-dir &>/dev/null || return
+  local ref
+  for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk}; do
+    if command git show-ref -q --verify $ref; then
+      echo ${ref:t}
+      return
+    fi
+  done
+  echo master
+}
+
+alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat"
+alias gst='git status'
+alias gb='git branch'
+alias gcf='git config --list'
+alias gcb='git checkout -b'
+alias gcl='git clone --recurse-submodules'
+alias gcm='git checkout $(git_main_branch)'
+alias gd='git diff'
+alias gds='git diff --staged'
+alias gr='git remote'
+alias gra='git remote add'
+
+# systemd
+alias start="sudo systemctl start"
+alias restart="sudo systemctl restart"
+alias stop="sudo systemctl stop"
+
+# systemd system messages
+alias journal-now="sudo journalctl -f"
+alias journal-boot="sudo journalctl -b"
+alias journal-prev-boot="sudo journalctl --since=today | tac | sed -n '/-- Reboot --/{n;:r;/-- Reboot --/q;p;n;b r}' | tac"
+
+# omz
+alias v="nvim"
+alias zshconfig="v ~/.zshrc"
+alias ohmyzsh="thunar ~/.oh-my-zsh"
+alias i3conf="v ~/.config/i3/config"
+alias bspwmconfig="nvim ~/.config/bspwm/bspwmrc"
+
+alias ls='exa -al --color=always --group-directories-first --icons' # preferred listing
+alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first --icons'  # long format
+alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
+alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
+
+alias cat='bat --style header --style rules --style snip --style changes --style header'
+
+alias rmpkg="sudo pacman -Rdd"
+
+## Colorize the grep command output for ease of use (good for log files)##
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+#readable output
+alias df='df -h'
+# alias df=duf
+
+#pacman unlock
+alias unlock="sudo rm /var/lib/pacman/db.lck"
+alias rmpacmanlock="sudo rm /var/lib/pacman/db.lck"
+
+#free
+alias free="free -mt"
+alias freep="echo `free | grep Mem | awk '{print $3/$2 * 100.0}' | cut -c 1-2`%"
+
+#use all cores
+alias uac="sh ~/.bin/main/000*"
+
+#continue download
+alias wget="wget -c"
+
+#userlist
+alias userlist="cut -d: -f1 /etc/passwd"
+
+#ps
+alias psa="ps auxf"
+alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
+
+#grub update
+alias update-grub="sudo grub-mkconfig -o /boot/grub/grub.cfg"
+
+# add new fonts
+alias update-fc='sudo fc-cache -fv'
+
+#get fastest mirrors in your neighborhood
+alias mirror="sudo reflector -f 30 -l 30 --number 10 --verbose --save /etc/pacman.d/mirrorlist"
+alias mirrord="sudo reflector --latest 30 --number 10 --sort delay --save /etc/pacman.d/mirrorlist"
+alias mirrors="sudo reflector --latest 30 --number 10 --sort score --save /etc/pacman.d/mirrorlist"
+alias mirrora="sudo reflector --latest 30 --number 10 --sort age --save /etc/pacman.d/mirrorlist"
+
+# use annie - video downloader
+#youtube-dl
+alias yta-aac="youtube-dl --extract-audio --audio-format aac "
+alias yta-best="youtube-dl --extract-audio --audio-format best "
+alias yta-flac="youtube-dl --extract-audio --audio-format flac "
+alias yta-m4a="youtube-dl --extract-audio --audio-format m4a "
+alias yta-mp3="youtube-dl --extract-audio --audio-format mp3 "
+alias yta-opus="youtube-dl --extract-audio --audio-format opus "
+alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
+alias yta-wav="youtube-dl --extract-audio --audio-format wav "
+alias ytv-best="yt-dlp -f bestvideo+bestaudio "
+
+#Cleanup orphaned packages
+alias cleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+# list CSV
+ls_csv() {
+  cat $1 | column -t -s, | less -S
+}
+
+# yarn aliases
+alias y="yarn"
+alias yd="yarn dev"
+alias ys="yarn start"
+alias ya="yarn add"
+
+# git
+alias gcl='git clone --depth 1'
+alias gi='git init'
+alias ga='git add'
+alias gc='git commit -m'
+alias gp='git push'
+
+alias vs="code ."
+
+# GPG Encrypt/Decrypt
+alias gpgEn="gpg --cipher-algo AES256 -c"
+
+# Show ports
+alias ports='sudo lsof -i -P -n | grep LISTEN'
+
+export PATH="/home/dni9/Documents/tools/git-fuzzy/bin:$PATH"
+alias gfs="git fuzzy status"
+alias gfl="git fuzzy log"
+
+# chezmoi
+alias cz="chezmoi"
+alias czdiff="chezmoi diff"
+czcd() {
+  cd $(chezmoi source-path)
+}
