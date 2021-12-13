@@ -145,9 +145,4 @@ export PATH="/home/dni9/Documents/tools/git-fuzzy/bin:$PATH"
 alias gfs="git fuzzy status"
 alias gfl="git fuzzy log"
 
-# chezmoi
-alias cz="chezmoi"
-alias czdiff="chezmoi diff"
-czcd() {
-  cd $(chezmoi source-path)
-}
+alias dots=dotbare
