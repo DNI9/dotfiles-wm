@@ -43,7 +43,7 @@ eval "$(fnm env)"
 
 # Dotbare
 _dotbare_completion_cmd
-_dotbare_completion_git
+# _dotbare_completion_git
 export DOTBARE_DIR="$HOME/.dotfiles"
 
 # source /home/dni9/.config/broot/launcher/bash/br

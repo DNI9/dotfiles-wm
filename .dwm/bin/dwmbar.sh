@@ -35,7 +35,7 @@ network () {
 
 	NETSTATUS=$(cat /sys/class/net/"$interface"/operstate 2>/dev/null)
 	if [[ "$NETSTATUS" == "up" || "$NETSTATUS" == "unknown" ]]; then
-		printf "^c#3b414d^^b#7aa2f7^  ^d^%s" " ^c#7aa2f7^Connected "
+		printf "^c#3b414d^^b#7aa2f7^   ^d^%s" " ^c#7aa2f7^Connected "
 	else
 		printf "^c#3b414d^^b#E06C75^ 睊 ^d^%s" " ^c#E06C75^Disconnected "
 	fi
@@ -44,7 +44,7 @@ network () {
 ## Time
 clock() {
 	printf "^c#1e222a^^b#668ee3^  "
-	printf "^c#1e222a^^b#7aa2f7^ %s " "$(date '+%a, %I:%M %p')"
+	printf "^c#1e222a^^b#7aa2f7^ %s " "$(date '+%a %d, %I:%M %p')"
 }
 
 ## Network Speed
