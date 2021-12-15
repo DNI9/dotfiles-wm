@@ -4,15 +4,18 @@ interval=0
 
 ## Cpu Info
 cpu_info() {
-	cpu_load=$(grep -o "^[^ ]*" /proc/loadavg)
+	# cpu_load=$(grep -o "^[^ ]*" /proc/loadavg)
+        cpu_load=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}')
 	printf "^c#3b414d^ ^b#7ec7a2^ CPU"
 	printf "^c#abb2bf^ ^b#353b45^ %s" "$cpu_load"
 }
 
 ## Memory
 memory() {
-	mem=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
-	printf "^c#C678DD^^b#1e222a^   %s " "$mem"
+	# mem=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
+        used=$(free | awk '/^Mem/ { print $3 }' | sed s/Gi//g)
+        total=$(free | awk '/^Mem/ { print $2 }' | sed s/Gi//g)
+	printf "^c#C678DD^^b#1e222a^   %s " "$((used*100/total))%"
 }
 
 ## Wi-fi
@@ -35,9 +38,13 @@ network () {
 
 	NETSTATUS=$(cat /sys/class/net/"$interface"/operstate 2>/dev/null)
 	if [[ "$NETSTATUS" == "up" || "$NETSTATUS" == "unknown" ]]; then
-		printf "^c#3b414d^^b#7aa2f7^   ^d^%s" " ^c#7aa2f7^Connected "
+		if [[ $(check_connectivity 2>/dev/null) == 1 ]]; then
+			printf "^c#3b414d^^b#7aa2f7^ 󰤨 ^d^%s" " ^c#7aa2f7^Connected "
+		else
+			printf "^c#3b414d^^b#E06C75^ 󰤩 ^d^%s" " ^c#E06C75^No internet "
+		fi
 	else
-		printf "^c#3b414d^^b#E06C75^ 睊 ^d^%s" " ^c#E06C75^Disconnected "
+		printf "^c#3b414d^^b#E06C75^ 󰤭 ^d^%s" " ^c#E06C75^Disconnected "
 	fi
 }
 
@@ -71,6 +78,7 @@ get_song_info() {
 
 ## System Update
 pkg_updates() {
+	if [[ $(check_connectivity 2>/dev/null) == 0 ]]; then exit; fi
 	updates=$(checkupdates | wc -l)
 	if [ "$updates" -eq 0 ]; then
 		printf ""
@@ -90,15 +98,15 @@ battery() {
 		printf "^c#E06C75^  Full"
 	else
 		if [[ ("$BAT" -ge "0") && ("$BAT" -le "20") ]]; then
-			printf "^c#E98CA4^  $BAT%%"
+			printf "^c#E98CA4^   $BAT%%"
 		elif [[ ("$BAT" -ge "20") && ("$BAT" -le "40") ]]; then
-			printf "^c#E98CA4^  $BAT%%"
+			printf "^c#E98CA4^   $BAT%%"
 		elif [[ ("$BAT" -ge "40") && ("$BAT" -le "60") ]]; then
-			printf "^c#E98CA4^  $BAT%%"
+			printf "^c#E98CA4^   $BAT%%"
 		elif [[ ("$BAT" -ge "60") && ("$BAT" -le "80") ]]; then
-			printf "^c#E98CA4^  $BAT%%"
+			printf "^c#E98CA4^   $BAT%%"
 		elif [[ ("$BAT" -ge "80") && ("$BAT" -le "100") ]]; then
-			printf "^c#E98CA4^  $BAT%%"
+			printf "^c#E98CA4^   $BAT%%"
 		fi
 	fi
 }
