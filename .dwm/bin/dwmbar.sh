@@ -5,23 +5,22 @@ interval=0
 ## Cpu Info
 cpu_info() {
 	# cpu_load=$(grep -o "^[^ ]*" /proc/loadavg)
-        cpu_load=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}')
+	cpu_load=$(top -bn1 | grep "Cpu(s)" | sed "s/.*, *\([0-9.]*\)%* id.*/\1/" | awk '{print 100 - $1"%"}')
 	printf "^c#3b414d^ ^b#7ec7a2^ CPU"
 	printf "^c#abb2bf^ ^b#353b45^ %s" "$cpu_load"
 }
 
 ## Memory
 memory() {
-	# mem=$(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)
-        used=$(free | awk '/^Mem/ { print $3 }' | sed s/Gi//g)
-        total=$(free | awk '/^Mem/ { print $2 }' | sed s/Gi//g)
+	used=$(free | awk '/^Mem/ { print $3 }' | sed s/Gi//g)
+	total=$(free | awk '/^Mem/ { print $2 }' | sed s/Gi//g)
 	printf "^c#C678DD^^b#1e222a^   %s " "$((used*100/total))%"
 }
 
 ## Wi-fi
 wlan() {
 	case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
-		up) printf "^c#3b414d^^b#7aa2f7^  ^d^%s" " ^c#7aa2f7^Connected " ;;
+			up) printf "^c#3b414d^^b#7aa2f7^  ^d^%s" " ^c#7aa2f7^Connected " ;;
 		down) printf "^c#3b414d^^b#E06C75^ 睊 ^d^%s" " ^c#E06C75^Disconnected " ;;
 	esac
 }
@@ -128,9 +127,9 @@ brightness() {
 
 ## Main
 while true; do
-	# check for package updates every 30min
-  [ "$interval" == 0 ] || [ $(("$interval" % 1800)) == 0 ] && updates=$(pkg_updates)
-  interval=$((interval + 1))
-
-  sleep 1 && xsetroot -name "$(get_song_info) $(speed) $updates $(battery) $(brightness) $(cpu_info) $(memory) $(network) $(clock)"
+  # check for package updates every 30min
+  # [ "$interval" == 0 ] || [ $(("$interval" % 1800)) == 0 ] && updates=$(pkg_updates)
+  # interval=$((interval + 1))
+  #
+  sleep 1 && xsetroot -name "$(get_song_info) $(speed) $(battery) $(brightness) $(cpu_info) $(memory) $(network) $(clock)"
 done

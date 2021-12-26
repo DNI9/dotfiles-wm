@@ -5,14 +5,14 @@
 ## Autostart Programs
 
 # Kill already running process
-_ps=(picom keepassxc dunst ksuperkey mpd xfce-polkit xfce4-power-manager volumeicon)
+_ps=(picom keepassxc dunst ksuperkey mpd xfce-polkit xfce4-power-manager blueman-applet)
 for _prs in "${_ps[@]}"; do
 	if [[ $(pidof "${_prs}") ]]; then
 		killall -9 "${_prs}"
 	fi
 done
 
-# killall dwmbar.sh
+export PATH="$PATH:$HOME/.local/bin"
 
 # Enable power management
 xfce4-power-manager &
@@ -33,7 +33,6 @@ hsetroot -cover "$(find /home/dni9/.dwm/wallpapers -type f -name '*' | shuf -n 1
 
 # Lauch dwmbar
 /home/dni9/.dwm/bin/dwmbar.sh &
-
 # Lauch notification daemon
 /home/dni9/.dwm/bin/dwmdunst.sh
 
@@ -48,8 +47,9 @@ export AWT_TOOLKIT=MToolkit
 wmname LG3D
 
 ## Add your autostart programs here --------------
-volumeicon &
+# volumeicon &
 exec keepassxc &
+exec blueman-applet &
 ## -----------------------------------------------
 
 dwm

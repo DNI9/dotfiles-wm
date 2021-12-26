@@ -10,5 +10,5 @@ if [[ "$1" == "-f" ]]; then
 elif [[ "$1" == "-e" ]]; then
 	geany
 elif [[ "$1" == "-w" ]]; then
-        firefox-developer-edition 
+        brave
 fi

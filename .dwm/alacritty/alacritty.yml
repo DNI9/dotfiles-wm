@@ -7,7 +7,7 @@
 
 ## Import files (Colors, Fonts, Etc)
 import:
-  - /home/dni9/.dwm/alacritty/catppuccin.yml
+  - /home/dni9/.dwm/alacritty/themes/rose-pine-moon.yml
   - /home/dni9/.dwm/alacritty/fonts.yml
 
 ## Set environment variables
