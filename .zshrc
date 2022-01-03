@@ -1,6 +1,6 @@
 export ZSH=/usr/share/oh-my-zsh/
 
-ZSH_THEME="robbyrussell"
+ZSH_THEME="superjarin"
 DISABLE_AUTO_UPDATE="true"
 
 plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-completions zsh-autocomplete dotbare)
@@ -51,3 +51,4 @@ eval "$(starship init zsh)"
 eval "$(zoxide init zsh)"
 eval "$(navi widget zsh)"
 
+colorscript random

@@ -141,8 +141,8 @@ alias gpgEn="gpg --cipher-algo AES256 -c"
 # Show ports
 alias ports='sudo lsof -i -P -n | grep LISTEN'
 
-export PATH="/home/dni9/Documents/tools/git-fuzzy/bin:$PATH"
-alias gfs="git fuzzy status"
-alias gfl="git fuzzy log"
+# Install git-fuzzy from AUR
+alias gfs="git-fuzzy status"
+alias gfl="git-fuzzy log"
 
 alias dots=dotbare
