@@ -1,6 +1,6 @@
-export ZSH=$HOME/.oh-my-zsh
+export ZSH=/usr/share/oh-my-zsh/
 
-ZSH_THEME="spaceship"
+ZSH_THEME="robbyrussell"
 DISABLE_AUTO_UPDATE="true"
 
 plugins=(zsh-autosuggestions zsh-syntax-highlighting zsh-completions zsh-autocomplete dotbare)
