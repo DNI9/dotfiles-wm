@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2021 Aditya Shakya <adi1090x@gmail.com>
+## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+
+DIR="$HOME/.config"
+
+rofi \
+	-show clipboard \
+	-modi "clipboard:greenclip print" \
+	-no-lazy-grab \
+	-scroll-method 0 \
+	-drun-match-fields all \
+	-drun-display-format "{cmd}" \
+	-no-drun-show-actions \
+	-theme "$DIR"/rofi/themes/launcher.rasi
