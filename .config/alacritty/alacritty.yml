@@ -7,12 +7,12 @@
 
 ## Import files (Colors, Fonts, Etc)
 import:
-  - /usr/share/dwm/alacritty/themes/rose-pine-moon.yml
-  - /usr/share/dwm/alacritty/fonts.yml
+  - ~/.config/alacritty/themes/catppuccin.yml
+  - ~/.config/alacritty/fonts.yml
 
 ## Set environment variables
 env:
-  TERM: alacritty
+  TERM: xterm-256color
   WINIT_X11_SCALE_FACTOR: '1.0'
 
 ## Terminal window settings

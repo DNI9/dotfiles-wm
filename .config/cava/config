@@ -8,23 +8,14 @@ method = ncurses
 
 [color]
 
-# Colors can be one of seven predefined: black, blue, cyan, green, magenta, red, white, yellow.
-# Or defined by hex code '#xxxxxx' (hex code must be within ''). User defined colors requires a
-# terminal that can change color definitions such as Gnome-terminal or rxvt.
+gradient = 1
 
-# background = black
-foreground = green
+gradient_color_1 = '#B5E8E0'
+gradient_color_2 = '#89DCEB'
+gradient_color_3 = '#96CDFB'
+gradient_color_4 = '#DDB6F2'
+gradient_color_5 = '#F5C2E7'
+gradient_color_6 = '#E8A2AF'
+gradient_color_7 = '#F2CDCD'
+gradient_color_8 = '#F5E0DC'
 
-# Gradient mode, only hex defined colors are supported, background must also be defined in hex
-# or remain commented out. 1 = on, 0 = off. Warning: for certain terminal emulators cava will
-# not able to restore color definitions on exit, simply restart your terminal to restore colors.
-
-gradient = 0
-gradient_color_1 = '#6080b0'
-gradient_color_2 = '#6ca8cf'
-gradient_color_3 = '#8e6f98'
-gradient_color_4 = '#C98093'
-gradient_color_5 = '#7ca198'
-gradient_color_6 = '#E4B371'
-gradient_color_7 = '#DCB4A5'
-gradient_color_8 = '#E6C096'
