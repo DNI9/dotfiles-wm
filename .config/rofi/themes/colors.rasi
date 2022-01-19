@@ -2,13 +2,13 @@
 /* Everyone is permitted to copy and distribute copies of this file under GNU-GPL3 */
 
 * {
-	background:			#1e222a;
-	background-alt:		#262A32;
-	border:				#2B2F37;
-	foreground:			#c8ccd4;
-	selected:			#9DDDCB;
-	highlight:			#DF6B74;
-	urgent:				#e06c75;
-	on:					#98c379;
-	off:				#e06c75;
+	background:				#1A1826;
+	background-alt:		#1E1E2E;
+	border:						#2B2F37;
+	foreground:				#D9E0EE;
+	selected:					#ABE9B3;
+	highlight:				#F28FAD;
+	urgent:						#E8A2AF;
+	on:								#ABE9B3;
+	off:							#E8A2AF;
 }
