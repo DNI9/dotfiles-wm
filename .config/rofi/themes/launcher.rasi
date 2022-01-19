@@ -84,7 +84,7 @@ mainbox {
 }
 
 listview {
-    lines:							6;
+    lines:							8;
     columns:						1;
     fixed-height: 					0;
     border: 						0px;

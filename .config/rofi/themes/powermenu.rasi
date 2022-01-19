@@ -2,9 +2,9 @@
 /* Everyone is permitted to copy and distribute copies of this file under GNU-GPL3 */
 
 configuration {
-    font:                           "JetBrainsMono Nerd Font Mono 10";
+    font:                           "JetBrainsMono Nerd Font Mono 12";
     show-icons:                     false;
-    display-drun: 					"󰐥";
+    display-drun: 					" ";
     drun-display-format:            "{icon} {name}";
     disable-history:                false;
 	click-to-exit: 					true;
@@ -18,7 +18,7 @@ window {
     text-color:                     @foreground;
     border:                  		2px;
     border-color:                  	@border;
-    border-radius:                  10px;
+    border-radius:                  8px;
     width:                          460px;
     location:                       center;
     anchor:                         center;
@@ -39,12 +39,12 @@ prompt {
 
 textbox-prompt-colon {
 	expand: 						false;
-	str: 							"󰐥";
+	str: 							"";
     border-radius:                  8px;
     background-color:               @on;
     text-color:                     @background;
-    padding:    					6px 10px 6px 10px;
-	font:							"JetBrainsMono Nerd Font Mono 13";
+    padding:    					3px 10px 3px 10px;
+	font:							"JetBrainsMono Nerd Font Mono 15";
 }
 
 entry {
@@ -83,7 +83,7 @@ listview {
     background-color:               @background;
     columns:                        5;
     lines:							1;
-    spacing:                        10px;
+    spacing:                        8px;
     cycle:                          true;
     dynamic:                        true;
     layout:                         vertical;
@@ -92,16 +92,16 @@ listview {
 mainbox {
     background-color:               @background;
     children:                       [ inputbar, listview ];
-    spacing:                       	10px;
-    padding:                        20px;
+    spacing:                       	8px;
+    padding:                        12px;
 }
 
 element {
     background-color:               @background-alt;
     text-color:                     @foreground;
     orientation:                    horizontal;
-    border-radius:                  10px;
-    padding:                        25px;
+    border-radius:                  15px;
+    padding:                        28px;
 }
 
 element-icon {
