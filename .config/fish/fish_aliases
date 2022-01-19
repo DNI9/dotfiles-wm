@@ -7,6 +7,14 @@ alias lt='exa -aT --color=always --group-directories-first --icons' # tree listi
 alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 alias ip="ip -color"
 
+# Systemd
+alias enable="sudo systemctl enable"
+alias disable="sudo systemctl disable"
+alias start="sudo systemctl start"
+alias stop="sudo systemctl stop"
+alias sstatus="sudo systemctl status"
+alias enable_now="sudo systemctl enable --now"
+
 # Replace some more things with better alternatives
 alias cat='bat --style header --style rules --style snip --style changes --style header'
 [ ! -x /usr/bin/yay ] && [ -x /usr/bin/paru ] && alias yay='paru'
