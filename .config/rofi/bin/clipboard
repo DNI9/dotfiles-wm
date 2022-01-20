@@ -13,4 +13,4 @@ rofi \
 	-drun-match-fields all \
 	-drun-display-format "{cmd}" \
 	-no-drun-show-actions \
-	-theme "$DIR"/rofi/themes/launcher.rasi
+	-theme "$DIR"/rofi/themes/clipboard.rasi

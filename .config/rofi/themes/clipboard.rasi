@@ -19,14 +19,14 @@ configuration {
 window {
 	transparency:                   "real";
 	border-radius:                  10px;
-	width:			    	50%;
+	width:			    	45%;
 	padding: 			30px;
 	border:				2px;
 	border-color:			@button;
 }
 
 prompt {
-	enabled:			true;
+	enabled:			false;
 	horizontal-align:		0.5;
 	vertical-align:			0.5;
 	background-color:		@button;
@@ -38,7 +38,7 @@ prompt {
 }
 
 entry {
-	placeholder:			"Search";
+	placeholder:			"Search clipboard";
 	expand:                         true;
 	padding:                        2%;
 	background-color:               @button;
@@ -83,8 +83,8 @@ element-text {
 }
 
 element selected {
-	background-color:               @gray2;
-	text-color:                     @bg;
+	background-color:               @button;
+	text-color:                     @gray2;
 	border-radius:                  10px;
 }
 
