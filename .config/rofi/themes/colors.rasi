@@ -11,4 +11,7 @@
 	urgent:						#E8A2AF;
 	on:								#ABE9B3;
 	off:							#E8A2AF;
+	gray:							#988BA2;
+	gray2:						#C3BAC6;
+	blue: 						#96CDFB;
 }
