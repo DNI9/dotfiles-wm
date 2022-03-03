@@ -68,7 +68,8 @@ alias open=xdg-open
 alias rm="rm -i"
 alias clip="xclip -selection clipboard"
 
-alias gl="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --stat"
+alias gl="git log --oneline --decorate --graph --all"
+alias gll="git log --graph --pretty='%Cred%h%Creset -%C(auto)%d%Creset %s %Cgreen(%ar) %C(bold blue)<%an>%Creset' --all"
 alias gst='git status'
 alias gb='git branch'
 alias gcf='git config --list'
@@ -95,6 +96,12 @@ alias y="yarn"
 alias yd="yarn dev"
 alias ys="yarn start"
 alias ya="yarn add"
+
+# NPM aliases
+alias ni="npm install"
+alias nid="npm install -D"
+alias nrb="npm run build"
+alias nrd="npm run dev"
 
 alias gfs="git-fuzzy status"
 alias gfl="git-fuzzy log"

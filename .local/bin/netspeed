@@ -61,9 +61,9 @@ vel_trans=$(get_velocity "$transmitted_bytes" "$old_transmitted_bytes")
 
 # Shows results in the console.
 case $1 in
-  "down") echo -en "󰦺 $vel_recv" ;;
-  "up")   echo -en "󰧄 $vel_trans" ;;
-  *)      echo -en "󰦺 $vel_recv 󰧄 $vel_trans" ;;
+  "down") echo -en "$vel_recv" ;;
+  "up")   echo -en "$vel_trans" ;;
+  *)      echo -en "$vel_recv $vel_trans" ;;
 esac
 
 # Update old values to perform new calculations.
