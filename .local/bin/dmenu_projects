@@ -1,0 +1,16 @@
+#!/bin/bash
+#
+# Dmenu script to open project in VSCode
+
+# Global variables:
+DIR=${1:-"/home/dni9/Projects/Web"}
+DMENU='dmenu -l -i'
+EDITOR='code'
+
+# Show list of options
+choice=$(ls "${DIR}" | $DMENU -p "Select project:")
+
+
+if [ "$choice" ]; then
+    $EDITOR "${DIR}/${choice}"
+fi
