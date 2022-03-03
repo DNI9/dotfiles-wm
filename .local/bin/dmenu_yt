@@ -1,0 +1,4 @@
+#!/bin/bash
+
+search=$(echo "" | dmenu -p "Search youtube: ")
+ytfzf -D "$search"
