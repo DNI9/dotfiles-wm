@@ -3,6 +3,7 @@
 search=$(echo "" | dmenu -p "Search youtube: ")
 
 if [ "$search" ]; then
+  killall mpv
   ytfzf -D "$search"
 fi
 
