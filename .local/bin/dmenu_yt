@@ -1,9 +1,22 @@
 #!/bin/bash
+# https://github.com/dni9
 
-search=$(echo "" | dmenu -p "Search youtube: ")
+CACHE_FILE="$HOME/.dmenu-yt-cache"
+CACHE_LINE_LIMIT=50
+
+! test -f "$CACHE_FILE" && touch "$CACHE_FILE"
+
+# remove first $CACHE_LINE_LIMIT from cache file
+[[ "$(wc <"$CACHE_FILE" -l)" -gt $CACHE_LINE_LIMIT ]] && sed -i '1,'"$CACHE_LINE_LIMIT"'d' "$CACHE_FILE"
+
+search=$(tac "$CACHE_FILE" | dmenu -i -p "Search youtube: ")
 
 if [ "$search" ]; then
+  # prevent duplicate entry
+  if ! grep -Fxq "$search" "$CACHE_FILE"; then
+    echo -e "$search" >>"$CACHE_FILE"
+  fi
+
   killall mpv
   ytfzf -D "$search"
 fi
-
