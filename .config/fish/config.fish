@@ -112,3 +112,6 @@ end
 if status --is-interactive && type -q fnm
   fnm env --use-on-cd | source
 end
+
+set -gx PNPM_HOME "/home/dni9/.local/share/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH

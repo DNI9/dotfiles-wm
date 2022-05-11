@@ -48,3 +48,7 @@ cursor:
 
 ## Live config reload
 live_config_reload: true
+
+key_bindings:
+  - { key: N,        mods: Control|Shift, action: SpawnNewInstance }
+
